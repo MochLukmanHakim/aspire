@@ -9,6 +9,7 @@ abstract class Routes {
   static const AUTH = _Paths.AUTH;
   static const HISTORI_ARTIKEL = _Paths.HISTORI_ARTIKEL;
   static const HISTORI_SURVEY = _Paths.HISTORI_SURVEY;
+  static const PROFILE = _Paths.PROFILE;
 }
 
 abstract class _Paths {
@@ -19,4 +20,5 @@ abstract class _Paths {
   static const AUTH = '/auth';
   static const HISTORI_ARTIKEL = '/histori-artikel';
   static const HISTORI_SURVEY = '/histori-survey';
+  static const PROFILE = '/profile';
 }

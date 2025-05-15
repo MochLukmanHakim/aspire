@@ -1,45 +1,57 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../controllers/home_controller.dart';
+import 'package:aspireget/app/modules/home/controllers/home_controller.dart';
+import 'package:aspireget/app/modules/histori_artikel/views/histori_artikel_view.dart';
 
-class HomeView extends GetView<HomeController> {
-  const HomeView({super.key});
+class HomeView extends StatelessWidget {
+  HomeView({super.key});
+  final HomeController controller = Get.put(HomeController());
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFF0C6B4F), // hijau untuk header background
-      body: SafeArea(
-        child: Column(
+      backgroundColor: const Color(0xFF0C6B4F),
+      body: Obx(() => IndexedStack(
+            index: controller.currentIndex.value,
+            children: [
+              HistoriArtikelView(),
+              _buildHomeContent(),
+            ],
+          )),
+      bottomNavigationBar: _buildBottomNavigationBar(),
+    );
+  }
+
+  Widget _buildHomeContent() {
+    return Stack(
+      children: [
+        Align(
+          alignment: Alignment.topCenter,
+          child: Image.asset(
+            'assets/images/background_awan.png',
+            width: 550,
+            fit: BoxFit.contain,
+          ),
+        ),
+        Column(
           children: [
-            // Header
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 24),
               child: Row(
                 children: [
                   const CircleAvatar(
+                    radius: 32,
                     backgroundImage: AssetImage('assets/images/user.jpg'),
                   ),
-                  const SizedBox(width: 12),
+                  const SizedBox(width: 16),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: const [
-                      Text(
-                        "Hi, Manmaan",
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      SizedBox(height: 4),
-                      Text(
-                        "Selamat datang di Aspire",
-                        style: TextStyle(
-                          color: Colors.white70,
-                          fontSize: 13,
-                        ),
-                      ),
+                      Text("Hi, Manmaan",
+                          style: TextStyle(color: Colors.white, fontSize: 22, fontWeight: FontWeight.bold)),
+                      SizedBox(height: 6),
+                      Text("Selamat datang di Aspire",
+                          style: TextStyle(color: Colors.white70, fontSize: 15)),
                     ],
                   ),
                   const Spacer(),
@@ -47,32 +59,7 @@ class HomeView extends GetView<HomeController> {
                 ],
               ),
             ),
-
-            // Search Bar
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20),
-              child: Material(
-                elevation: 4,
-                borderRadius: BorderRadius.circular(25),
-                child: TextField(
-                  decoration: InputDecoration(
-                    hintText: 'Search',
-                    prefixIcon: const Icon(Icons.search),
-                    filled: true,
-                    fillColor: Colors.white,
-                    contentPadding: const EdgeInsets.symmetric(vertical: 12),
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(25),
-                      borderSide: BorderSide.none,
-                    ),
-                  ),
-                ),
-              ),
-            ),
-
-            const SizedBox(height: 20),
-
-            // Konten putih melengkung
+            const SizedBox(height: 60),
             Expanded(
               child: Container(
                 width: double.infinity,
@@ -83,105 +70,94 @@ class HomeView extends GetView<HomeController> {
                     topRight: Radius.circular(36),
                   ),
                 ),
-                padding: const EdgeInsets.fromLTRB(20, 30, 20, 0),
                 child: ListView(
+                  padding: const EdgeInsets.fromLTRB(20, 20, 20, 100),
                   children: [
-                    const Text(
-                      "Kategori",
-                      style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                    const Text("Kategori",
+                        style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
+                    const SizedBox(height: 16),
+                    Wrap(
+                      spacing: 24,
+                      runSpacing: 20,
+                      children: [
+                        _buildCategoryCard('assets/icons/artikel.png', "Artikel"),
+                        _buildCategoryCard('assets/icons/survey.png', "Survey"),
+                        _buildCategoryCard('assets/icons/pesan.png', "Pesan"),
+                        _buildCategoryCard('assets/icons/konsultasi.png', "Konsultasi"),
+                      ],
                     ),
+                    const SizedBox(height: 30),
+                    const Text("Artikel Terbaru",
+                        style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
                     const SizedBox(height: 12),
-                    SizedBox(
-                      height: 100,
-                      child: ListView(
-                        scrollDirection: Axis.horizontal,
-                        children: [
-                          _buildCategoryCard('assets/icons/artikel.png', "Artikel"),
-                          _buildCategoryCard('assets/icons/survey.png', "Survey"),
-                          _buildCategoryCard('assets/icons/pesan.png', "Pesan"),
-                          _buildCategoryCard('assets/icons/konsultasi.png', "Konsultasi"),
-                        ],
-                      ),
-                    ),
-                    const SizedBox(height: 24),
-                    const Text(
-                      "Artikel terbaru",
-                      style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                    _buildArticleCard(
+                      'assets/images/artikel1.png',
+                      'Yuk, Coba Pengembangan Diri Untuk Menggali Potensi Diri Yang Berguna Bagi Karirmu!',
                     ),
                     const SizedBox(height: 12),
                     _buildArticleCard(
-                      imageAsset: 'assets/images/artikel1.png',
-                      title:
-                          'Yuk, Coba Pengembangan Diri Untuk Menggali Potensi Diri Yang Berguna Bagi Karirmu!',
+                      'assets/images/artikel2.png',
+                      'Studi: Kecanduan Gadget dan Pengaruhnya pada Perkembangan Anak',
                     ),
-                    const SizedBox(height: 12),
-                    _buildArticleCard(
-                      imageAsset: 'assets/images/artikel2.png',
-                      title:
-                          'Studi: Kecanduan Gadget dan Pengaruhnya pada Perkembangan Anak',
-                    ),
-                    const SizedBox(height: 24),
                   ],
                 ),
               ),
             ),
           ],
         ),
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: 1,
-        items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.access_time), label: ""),
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: ""),
-          BottomNavigationBarItem(icon: Icon(Icons.person), label: ""),
-        ],
-      ),
+        Positioned(
+          left: 20,
+          right: 20,
+          top: 140,
+          child: Material(
+            elevation: 4,
+            borderRadius: BorderRadius.circular(25),
+            child: TextField(
+              decoration: InputDecoration(
+                hintText: 'Search',
+                prefixIcon: const Icon(Icons.search),
+                filled: true,
+                fillColor: Colors.white,
+                contentPadding: const EdgeInsets.symmetric(vertical: 12),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(25),
+                  borderSide: BorderSide.none,
+                ),
+              ),
+            ),
+          ),
+        ),
+      ],
     );
   }
 
   static Widget _buildCategoryCard(String assetPath, String label) {
-    return Padding(
-      padding: const EdgeInsets.only(right: 12),
-      child: Column(
-        children: [
-          Container(
-            width: 64,
-            height: 64,
-            decoration: BoxDecoration(
-              color: const Color(0xFFF3F5F7),
-              borderRadius: BorderRadius.circular(16),
-            ),
-            child: Center(
-              child: Image.asset(
-                assetPath,
-                width: 28,
-                height: 28,
-                fit: BoxFit.contain,
-              ),
-            ),
+    return Column(
+      children: [
+        Container(
+          width: 64,
+          height: 64,
+          decoration: const BoxDecoration(
+            shape: BoxShape.circle,
+            color: Color(0xFFF3F5F7),
           ),
-          const SizedBox(height: 6),
-          Text(label, style: const TextStyle(fontSize: 12)),
-        ],
-      ),
+          child: Center(
+            child: Image.asset(assetPath, width: 28, height: 28),
+          ),
+        ),
+        const SizedBox(height: 6),
+        Text(label, style: const TextStyle(fontSize: 12)),
+      ],
     );
   }
 
-  static Widget _buildArticleCard({
-    required String imageAsset,
-    required String title,
-  }) {
+  static Widget _buildArticleCard(String imageAsset, String title) {
     return Container(
-      margin: const EdgeInsets.only(bottom: 12),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(16),
         boxShadow: const [
-          BoxShadow(
-            color: Colors.black12,
-            blurRadius: 4,
-            offset: Offset(0, 2),
-          ),
+          BoxShadow(color: Colors.black12, blurRadius: 4, offset: Offset(0, 2)),
         ],
       ),
       child: Column(
@@ -189,12 +165,7 @@ class HomeView extends GetView<HomeController> {
         children: [
           ClipRRect(
             borderRadius: const BorderRadius.vertical(top: Radius.circular(16)),
-            child: Image.asset(
-              imageAsset,
-              width: double.infinity,
-              height: 150,
-              fit: BoxFit.cover,
-            ),
+            child: Image.asset(imageAsset, width: double.infinity, height: 150, fit: BoxFit.cover),
           ),
           Padding(
             padding: const EdgeInsets.all(12),
@@ -203,6 +174,51 @@ class HomeView extends GetView<HomeController> {
               style: const TextStyle(fontSize: 13, fontWeight: FontWeight.w500),
               maxLines: 3,
               overflow: TextOverflow.ellipsis,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildBottomNavigationBar() {
+    return Obx(() => Container(
+          height: 72,
+          decoration: BoxDecoration(
+            color: Colors.white,
+            border: Border(top: BorderSide(color: Colors.grey.shade200)),
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              _buildNavItem(Icons.history, 'Riwayat', 0),
+              _buildNavItem(Icons.home_rounded, 'Home', 1),
+              _buildNavItem(Icons.person_outline, 'Profil', 2),
+            ],
+          ),
+        ));
+  }
+
+  Widget _buildNavItem(IconData icon, String label, int index) {
+    final isActive = controller.currentIndex.value == index;
+
+    return GestureDetector(
+      onTap: () => controller.changePage(index),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Icon(
+            icon,
+            color: isActive ? const Color(0xFF0C6B4F) : Colors.grey,
+            size: 24,
+          ),
+          const SizedBox(height: 4),
+          Text(
+            label,
+            style: TextStyle(
+              color: isActive ? const Color(0xFF0C6B4F) : Colors.grey,
+              fontSize: 11,
+              fontWeight: FontWeight.w500,
             ),
           ),
         ],
