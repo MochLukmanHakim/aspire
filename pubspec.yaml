@@ -74,7 +74,14 @@ flutter:
     - assets/images/artikel1.png
     - assets/images/artikel2.png
     - assets/images/background_awan.png
-    
+    - assets/images/woman_stretching.png
+    - assets/images/healthy_food.png
+    - assets/images/user.png
+    - assets/images/survey1.png
+    - assets/images/survey2.png
+    - assets/images/survey3.png
+    - assets/images/survey4.png
+
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
 

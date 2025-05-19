@@ -7,9 +7,15 @@ abstract class Routes {
   static const SPLASH = _Paths.SPLASH;
   static const LOGIN = _Paths.LOGIN;
   static const AUTH = _Paths.AUTH;
-  static const HISTORI_ARTIKEL = _Paths.HISTORI_ARTIKEL;
+
   static const HISTORI_SURVEY = _Paths.HISTORI_SURVEY;
   static const PROFILE = _Paths.PROFILE;
+  static const HISTORI_ARTIKEL = _Paths.HISTORI_ARTIKEL;
+  static const ARTIKEL = _Paths.ARTIKEL;
+  static const ARTIKEL_DETAIL = _Paths.ARTIKEL_DETAIL;
+  static const NOTIFIKASI = _Paths.NOTIFIKASI;
+  static const SURVEY = _Paths.SURVEY;
+  static const KONSELOR = _Paths.KONSELOR;
 }
 
 abstract class _Paths {
@@ -18,7 +24,13 @@ abstract class _Paths {
   static const SPLASH = '/splash';
   static const LOGIN = '/login';
   static const AUTH = '/auth';
-  static const HISTORI_ARTIKEL = '/histori-artikel';
+
   static const HISTORI_SURVEY = '/histori-survey';
   static const PROFILE = '/profile';
+  static const HISTORI_ARTIKEL = '/histori-artikel';
+  static const ARTIKEL = '/artikel';
+  static const ARTIKEL_DETAIL = '/artikel-detail';
+  static const NOTIFIKASI = '/notifikasi';
+  static const SURVEY = '/survey';
+  static const KONSELOR = '/konselor';
 }

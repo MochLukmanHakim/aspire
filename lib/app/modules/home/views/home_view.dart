@@ -2,24 +2,37 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:aspireget/app/modules/home/controllers/home_controller.dart';
 import 'package:aspireget/app/modules/histori_artikel/views/histori_artikel_view.dart';
+import 'package:aspireget/app/modules/profile/views/profile_view.dart';
+import 'package:aspireget/app/modules/artikel/views/artikel_view.dart';
+import 'package:aspireget/app/modules/notifikasi/views/notifikasi_view.dart';
+import 'package:aspireget/app/modules/survey/views/survey_view.dart';
+import 'package:aspireget/app/modules/konselor/views/konselor_view.dart';
 
 class HomeView extends StatelessWidget {
   HomeView({super.key});
-  final HomeController controller = Get.put(HomeController());
+
+  final HomeController controller = Get.put(HomeController(), permanent: true);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xFF0C6B4F),
-      body: Obx(() => IndexedStack(
-            index: controller.currentIndex.value,
-            children: [
-              HistoriArtikelView(),
-              _buildHomeContent(),
-            ],
-          )),
+      body: Obx(() => _buildBody(controller.currentIndex.value)),
       bottomNavigationBar: _buildBottomNavigationBar(),
     );
+  }
+
+  Widget _buildBody(int index) {
+    switch (index) {
+      case 0:
+        return HistoriArtikelView();
+      case 1:
+        return _buildHomeContent();
+      case 2:
+        return ProfileView();
+      default:
+        return _buildHomeContent();
+    }
   }
 
   Widget _buildHomeContent() {
@@ -36,29 +49,35 @@ class HomeView extends StatelessWidget {
         Column(
           children: [
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 24),
-              child: Row(
-                children: [
-                  const CircleAvatar(
-                    radius: 32,
-                    backgroundImage: AssetImage('assets/images/user.jpg'),
-                  ),
-                  const SizedBox(width: 16),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: const [
-                      Text("Hi, Manmaan",
-                          style: TextStyle(color: Colors.white, fontSize: 22, fontWeight: FontWeight.bold)),
-                      SizedBox(height: 6),
-                      Text("Selamat datang di Aspire",
-                          style: TextStyle(color: Colors.white70, fontSize: 15)),
-                    ],
-                  ),
-                  const Spacer(),
-                  const Icon(Icons.notifications, color: Colors.white),
-                ],
-              ),
-            ),
+  padding: const EdgeInsets.fromLTRB(20, 50, 20, 16),
+  child: Row(
+    children: [
+      const CircleAvatar(
+        radius: 25,
+        backgroundImage: AssetImage('assets/images/user.png'),
+      ),
+      const SizedBox(width: 16),
+      Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: const [
+          Text("Hi, Manmaan",
+              style: TextStyle(color: Colors.white, fontSize: 22, fontWeight: FontWeight.bold)),
+          SizedBox(height: 6),
+          Text("Selamat datang di Aspire",
+              style: TextStyle(color: Colors.white70, fontSize: 15)),
+        ],
+      ),
+      const Spacer(),
+      IconButton(
+        icon: const Icon(Icons.notifications, color: Colors.white),
+        onPressed: () {
+          Get.to(() => const NotifikasiView());
+        },
+      ),
+    ],
+  ),
+),
+
             const SizedBox(height: 60),
             Expanded(
               child: Container(
@@ -71,20 +90,41 @@ class HomeView extends StatelessWidget {
                   ),
                 ),
                 child: ListView(
-                  padding: const EdgeInsets.fromLTRB(20, 20, 20, 100),
+                  padding: const EdgeInsets.fromLTRB(20, 40, 20, 100),
                   children: [
                     const Text("Kategori",
                         style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
                     const SizedBox(height: 16),
-                    Wrap(
-                      spacing: 24,
-                      runSpacing: 20,
-                      children: [
-                        _buildCategoryCard('assets/icons/artikel.png', "Artikel"),
-                        _buildCategoryCard('assets/icons/survey.png', "Survey"),
-                        _buildCategoryCard('assets/icons/pesan.png', "Pesan"),
-                        _buildCategoryCard('assets/icons/konsultasi.png', "Konsultasi"),
-                      ],
+                    Center(
+                      child: Wrap(
+                        alignment: WrapAlignment.center,
+                        spacing: 30,
+                        runSpacing: 20,
+                        children: [
+                          _buildCategoryCard(
+                            'assets/icons/artikel.png',
+                            "Artikel",
+                            () => Get.to(() => ArtikelView()),
+                          ),
+                          _buildCategoryCard(
+                            'assets/icons/survey.png',
+                            "Survey",
+                            () => Get.to(() => SurveyView()),
+                          ),
+                          _buildCategoryCard(
+                            'assets/icons/konsultasi.png',
+                            "Konsultasi",
+                            () => Get.to(() => KonselorView()),
+                          ),
+                          _buildCategoryCard(
+                            'assets/icons/pesan.png',
+                            "Pesan",
+                            () {
+                              Get.snackbar("Konsultasi", "Navigasi ke halaman Konsultasi belum tersedia.");
+                            },
+                          ),
+                        ],
+                      ),
                     ),
                     const SizedBox(height: 30),
                     const Text("Artikel Terbaru",
@@ -97,7 +137,7 @@ class HomeView extends StatelessWidget {
                     const SizedBox(height: 12),
                     _buildArticleCard(
                       'assets/images/artikel2.png',
-                      'Studi: Kecanduan Gadget dan Pengaruhnya pada Perkembangan Anak',
+                      'Studi:Kecanduan Gadget dan Pengaruhnya pada Perkembangan Anak',
                     ),
                   ],
                 ),
@@ -108,7 +148,7 @@ class HomeView extends StatelessWidget {
         Positioned(
           left: 20,
           right: 20,
-          top: 140,
+          top: 150,
           child: Material(
             elevation: 4,
             borderRadius: BorderRadius.circular(25),
@@ -131,23 +171,26 @@ class HomeView extends StatelessWidget {
     );
   }
 
-  static Widget _buildCategoryCard(String assetPath, String label) {
-    return Column(
-      children: [
-        Container(
-          width: 64,
-          height: 64,
-          decoration: const BoxDecoration(
-            shape: BoxShape.circle,
-            color: Color(0xFFF3F5F7),
+  static Widget _buildCategoryCard(String assetPath, String label, VoidCallback onTap) {
+    return GestureDetector(
+      onTap: onTap,
+      child: Column(
+        children: [
+          Container(
+            width: 64,
+            height: 64,
+            decoration: const BoxDecoration(
+              shape: BoxShape.circle,
+              color: Color(0xFFF3F5F7),
+            ),
+            child: Center(
+              child: Image.asset(assetPath, width: 28, height: 28),
+            ),
           ),
-          child: Center(
-            child: Image.asset(assetPath, width: 28, height: 28),
-          ),
-        ),
-        const SizedBox(height: 6),
-        Text(label, style: const TextStyle(fontSize: 12)),
-      ],
+          const SizedBox(height: 6),
+          Text(label, style: const TextStyle(fontSize: 12)),
+        ],
+      ),
     );
   }
 

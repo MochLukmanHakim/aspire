@@ -1,5 +1,9 @@
 import 'package:get/get.dart';
 
+import '../modules/artikel/bindings/artikel_binding.dart';
+import '../modules/artikel/views/artikel_view.dart';
+import '../modules/artikel_detail/bindings/artikel_detail_binding.dart';
+import '../modules/artikel_detail/views/artikel_detail_view.dart';
 import '../modules/auth/bindings/auth_binding.dart';
 import '../modules/auth/views/auth_view.dart';
 import '../modules/histori_artikel/bindings/histori_artikel_binding.dart';
@@ -8,12 +12,18 @@ import '../modules/histori_survey/bindings/histori_survey_binding.dart';
 import '../modules/histori_survey/views/histori_survey_view.dart';
 import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/home_view.dart';
+import '../modules/konselor/bindings/konselor_binding.dart';
+import '../modules/konselor/views/konselor_view.dart';
 import '../modules/login/bindings/login_binding.dart';
 import '../modules/login/views/login_view.dart';
+import '../modules/notifikasi/bindings/notifikasi_binding.dart';
+import '../modules/notifikasi/views/notifikasi_view.dart';
 import '../modules/profile/bindings/profile_binding.dart';
 import '../modules/profile/views/profile_view.dart';
 import '../modules/splash/bindings/splash_binding.dart';
 import '../modules/splash/views/splash_view.dart';
+import '../modules/survey/bindings/survey_binding.dart';
+import '../modules/survey/views/survey_view.dart';
 
 part 'app_routes.dart';
 
@@ -57,6 +67,36 @@ class AppPages {
       name: _Paths.PROFILE,
       page: () => ProfileView(),
       binding: ProfileBinding(),
+    ),
+    GetPage(
+      name: _Paths.ARTIKEL,
+      page: () => ArtikelView(),
+      binding: ArtikelBinding(),
+    ),
+    GetPage(
+      name: '/artikel-detail',
+      page: () {
+        final args = Get.arguments as Map<String, dynamic>;
+        return ArtikelDetailView(
+          title: args['title'],
+          image: args['image'],
+        );
+      },
+    ),
+    GetPage(
+      name: _Paths.NOTIFIKASI,
+      page: () => const NotifikasiView(),
+      binding: NotifikasiBinding(),
+    ),
+    GetPage(
+      name: _Paths.SURVEY,
+      page: () => SurveyView(),
+      binding: SurveyBinding(),
+    ),
+    GetPage(
+      name: _Paths.KONSELOR,
+      page: () => const KonselorView(),
+      binding: KonselorBinding(),
     ),
   ];
 }
