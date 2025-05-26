@@ -3,10 +3,7 @@ import 'package:get/get.dart';
 import '../controllers/histori_artikel_controller.dart';
 import '../../histori_survey/controllers/histori_survey_controller.dart';
 import '../../histori_survey/views/histori_survey_view.dart';
-import '../../home/views/home_view.dart';
 import '../../artikel_detail/views/artikel_detail_view.dart';
-import '../../artikel/views/artikel_view.dart';
-import '../../notifikasi/views/notifikasi_view.dart';
 
 class HistoriArtikelView extends StatefulWidget {
   const HistoriArtikelView({super.key});

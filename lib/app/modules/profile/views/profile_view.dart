@@ -1,11 +1,9 @@
 import 'package:aspireget/app/modules/histori_artikel/views/histori_artikel_view.dart';
-import 'package:aspireget/app/modules/pesan/views/pesan_view.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:aspireget/app/modules/home/controllers/home_controller.dart';
 import '../../profile_detail/views/profile_detail_view.dart';
 import '../../notifikasi/views/notifikasi_view.dart';
-import '../../pesan/views/pesan_view.dart';
 import '../../logout/views/logout_view.dart';
 
 class ProfileView extends StatelessWidget {

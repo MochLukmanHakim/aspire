@@ -3,7 +3,6 @@ import 'package:aspireget/app/modules/pesan/views/pesan_view.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:aspireget/app/modules/home/controllers/home_controller.dart';
-import 'package:aspireget/app/modules/histori_artikel/views/histori_artikel_view.dart';
 import 'package:aspireget/app/modules/profile/views/profile_view.dart';
 import 'package:aspireget/app/modules/artikel/views/artikel_view.dart';
 import 'package:aspireget/app/modules/konselor/views/konselor_view.dart';
@@ -87,12 +86,19 @@ class HomeView extends StatelessWidget {
               padding: const EdgeInsets.fromLTRB(20, 50, 20, 16),
               child: Row(
                 children: [
-                  const CircleAvatar(
-                    radius: 30,
-                    backgroundColor: Color(0xFFF9FAFB),
-                    child: CircleAvatar(
-                      radius: 25,
-                      backgroundImage: AssetImage('assets/images/user.png'),
+                  // Bungkus CircleAvatar dengan GestureDetector
+                  GestureDetector(
+                    onTap: () {
+                      // Navigasi ke ProfileView atau langsung ke tab profil
+                      Get.find<HomeController>().changePage(4); // Navigate to Profile tab
+                    },
+                    child: const CircleAvatar(
+                      radius: 30,
+                      backgroundColor: Color(0xFFF9FAFB),
+                      child: CircleAvatar(
+                        radius: 25,
+                        backgroundImage: AssetImage('assets/images/user.png'),
+                      ),
                     ),
                   ),
                   const SizedBox(width: 16),
@@ -105,7 +111,7 @@ class HomeView extends StatelessWidget {
                               fontSize: 22,
                               fontWeight: FontWeight.bold)),
                       SizedBox(height: 6),
-                      Text("Selamat datang di Aspire",
+                      Text("Selamat datang di EduMind",
                           style: TextStyle(color: Colors.white70, fontSize: 15)),
                     ],
                   ),
@@ -357,7 +363,7 @@ Widget _buildAppointmentCard() {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                'Top Konselor',
+                'Konselor Teratas',
                 style: TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.bold,

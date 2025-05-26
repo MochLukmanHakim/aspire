@@ -2,7 +2,6 @@ import 'package:get/get.dart';
 
 import '../modules/artikel/bindings/artikel_binding.dart';
 import '../modules/artikel/views/artikel_view.dart';
-import '../modules/artikel_detail/bindings/artikel_detail_binding.dart';
 import '../modules/artikel_detail/views/artikel_detail_view.dart';
 import '../modules/auth/bindings/auth_binding.dart';
 import '../modules/auth/views/auth_view.dart';
@@ -20,8 +19,7 @@ import '../modules/konselor/bindings/konselor_binding.dart';
 import '../modules/konselor/views/konselor_view.dart';
 import '../modules/login/bindings/login_binding.dart';
 import '../modules/login/views/login_view.dart';
-import '../modules/logout/bindings/logout_binding.dart';
-import '../modules/logout/views/logout_view.dart';
+
 import '../modules/notifikasi/bindings/notifikasi_binding.dart';
 import '../modules/notifikasi/views/notifikasi_view.dart';
 import '../modules/pesan/bindings/pesan_binding.dart';

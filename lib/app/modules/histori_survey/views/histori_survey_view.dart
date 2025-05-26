@@ -64,21 +64,6 @@ class _HistoriSurveyViewState extends State<HistoriSurveyView> {
     },
   ];
 
-  String _formatDayName(DateTime date) {
-    final days = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
-    return days[date.weekday % 7];
-  }
-
-  String _formatMonthYear(DateTime date) {
-    final months = [
-      'Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun',
-      'Jul', 'Agu', 'Sep', 'Okt', 'Nov', 'Des'
-    ];
-    return '${months[date.month - 1]} ${date.year}';
-  }
-
-  
-
   @override
   Widget build(BuildContext context) {
     if (bookmarkedConsultants.isEmpty) {

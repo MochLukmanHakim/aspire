@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../artikel_detail/views/artikel_detail_view.dart';
-// Tambahkan import di bagian atas artikel_view.dart
-import '../../home/controllers/home_controller.dart';
 import '../../notifikasi/views/notifikasi_view.dart';
 import '../../histori_artikel/views/histori_artikel_view.dart';
-import '../../logout/views/logout_view.dart';
+
 
 
 class ArtikelController extends GetxController {
@@ -93,7 +91,7 @@ class ArtikelView extends StatelessWidget {
                             "Berdasarkan Kategori",
                             style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
                           ),
-                          Icon(Icons.arrow_forward),
+                          
                         ],
                       ),
                       const SizedBox(height: 12),
