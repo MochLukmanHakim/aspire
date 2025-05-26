@@ -7,7 +7,6 @@ abstract class Routes {
   static const SPLASH = _Paths.SPLASH;
   static const LOGIN = _Paths.LOGIN;
   static const AUTH = _Paths.AUTH;
-
   static const HISTORI_SURVEY = _Paths.HISTORI_SURVEY;
   static const PROFILE = _Paths.PROFILE;
   static const HISTORI_ARTIKEL = _Paths.HISTORI_ARTIKEL;
@@ -16,6 +15,11 @@ abstract class Routes {
   static const NOTIFIKASI = _Paths.NOTIFIKASI;
   static const SURVEY = _Paths.SURVEY;
   static const KONSELOR = _Paths.KONSELOR;
+  static const PESAN = _Paths.PESAN;
+  static const CHAT = _Paths.CHAT;
+  static const PROFILE_DETAIL = _Paths.PROFILE_DETAIL;
+  static const LOGOUT = _Paths.LOGOUT;
+  static const CHAT_RIWAYAT = _Paths.CHAT_RIWAYAT;
 }
 
 abstract class _Paths {
@@ -24,7 +28,6 @@ abstract class _Paths {
   static const SPLASH = '/splash';
   static const LOGIN = '/login';
   static const AUTH = '/auth';
-
   static const HISTORI_SURVEY = '/histori-survey';
   static const PROFILE = '/profile';
   static const HISTORI_ARTIKEL = '/histori-artikel';
@@ -33,4 +36,9 @@ abstract class _Paths {
   static const NOTIFIKASI = '/notifikasi';
   static const SURVEY = '/survey';
   static const KONSELOR = '/konselor';
+  static const PESAN = '/pesan';
+  static const CHAT = '/chat';
+  static const PROFILE_DETAIL = '/profile-detail';
+  static const LOGOUT = '/logout';
+  static const CHAT_RIWAYAT = '/chat-riwayat';
 }

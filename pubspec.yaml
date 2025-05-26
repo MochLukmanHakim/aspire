@@ -35,7 +35,8 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.8
   get: ^4.7.2
-
+  intl: ^0.18.1
+  
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -46,6 +47,7 @@ dev_dependencies:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^5.0.0
+  flutter_launcher_icons: ^0.13.1
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -63,24 +65,30 @@ flutter:
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
   assets:
-    - assets/images/logo.png
-    - assets/images/header.png
+    - assets/images/logo2.png
+    - assets/images/logo1.png
+    - assets/images/header1.png
+    - assets/images/header2.png
     - assets/images/headauth.png
     - assets/icons/notification.png
     - assets/icons/artikel.png
     - assets/icons/pesan.png
     - assets/icons/konsultasi.png
     - assets/icons/survey.png
+    - assets/icons/logo_depan.png
     - assets/images/artikel1.png
     - assets/images/artikel2.png
     - assets/images/background_awan.png
     - assets/images/woman_stretching.png
     - assets/images/healthy_food.png
     - assets/images/user.png
-    - assets/images/survey1.png
-    - assets/images/survey2.png
-    - assets/images/survey3.png
-    - assets/images/survey4.png
+    - assets/images/konselor1.png
+    - assets/images/konselor2.png
+    - assets/images/konselor3.png
+    - assets/images/konselor4.png
+    - assets/images/konselor5.png
+    - assets/images/ilustrasi_konsul.png
+    - assets/images/ilustrasi_artikel.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
@@ -107,3 +115,7 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/to/font-from-package
+flutter_launcher_icons:
+  android: true
+  ios: false
+  image_path: "assets/icons/logo_depan.png"

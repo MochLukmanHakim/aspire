@@ -6,6 +6,10 @@ import '../modules/artikel_detail/bindings/artikel_detail_binding.dart';
 import '../modules/artikel_detail/views/artikel_detail_view.dart';
 import '../modules/auth/bindings/auth_binding.dart';
 import '../modules/auth/views/auth_view.dart';
+import '../modules/chat/bindings/chat_binding.dart';
+import '../modules/chat/views/chat_view.dart';
+import '../modules/chat_riwayat/bindings/chat_riwayat_binding.dart';
+import '../modules/chat_riwayat/views/chat_riwayat_view.dart';
 import '../modules/histori_artikel/bindings/histori_artikel_binding.dart';
 import '../modules/histori_artikel/views/histori_artikel_view.dart';
 import '../modules/histori_survey/bindings/histori_survey_binding.dart';
@@ -16,10 +20,16 @@ import '../modules/konselor/bindings/konselor_binding.dart';
 import '../modules/konselor/views/konselor_view.dart';
 import '../modules/login/bindings/login_binding.dart';
 import '../modules/login/views/login_view.dart';
+import '../modules/logout/bindings/logout_binding.dart';
+import '../modules/logout/views/logout_view.dart';
 import '../modules/notifikasi/bindings/notifikasi_binding.dart';
 import '../modules/notifikasi/views/notifikasi_view.dart';
+import '../modules/pesan/bindings/pesan_binding.dart';
+import '../modules/pesan/views/pesan_view.dart';
 import '../modules/profile/bindings/profile_binding.dart';
 import '../modules/profile/views/profile_view.dart';
+import '../modules/profile_detail/bindings/profile_detail_binding.dart';
+import '../modules/profile_detail/views/profile_detail_view.dart';
 import '../modules/splash/bindings/splash_binding.dart';
 import '../modules/splash/views/splash_view.dart';
 import '../modules/survey/bindings/survey_binding.dart';
@@ -97,6 +107,26 @@ class AppPages {
       name: _Paths.KONSELOR,
       page: () => const KonselorView(),
       binding: KonselorBinding(),
+    ),
+    GetPage(
+      name: _Paths.PESAN,
+      page: () => PesanView(),
+      binding: PesanBinding(),
+    ),
+    GetPage(
+      name: _Paths.CHAT,
+      page: () => ChatView(),
+      binding: ChatBinding(),
+    ),
+    GetPage(
+      name: _Paths.PROFILE_DETAIL,
+      page: () => ProfileDetailView(),
+      binding: ProfileDetailBinding(),
+    ),
+    GetPage(
+      name: _Paths.CHAT_RIWAYAT,
+      page: () =>  ChatRiwayatView(),
+      binding: ChatRiwayatBinding(),
     ),
   ];
 }

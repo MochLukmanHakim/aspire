@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 class ProfileController extends GetxController {
   final formKey = GlobalKey<FormState>();
 
-  var profileImagePath = Rx<String?>('assets/images/default_profile.png');
+  var profileImagePath = Rx<String?>('assets/images/user.png');
 
   var fullName = ''.obs;
   var username = ''.obs;
