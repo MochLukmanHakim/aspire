@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../chat/views/chat_view.dart';
-import '../../chat_riwayat/views/chat_riwayat_view.dart'; // Tambahkan import ini
+import '../../chat_riwayat/views/chat_riwayat_view.dart';
 import '../../notifikasi/views/notifikasi_view.dart';
 import '../../histori_artikel/views/histori_artikel_view.dart';
 import '../../home/controllers/home_controller.dart';
@@ -29,7 +29,7 @@ class PesanView extends StatelessWidget {
     },
   ];
 
-  // Riwayat konsultasi (sebelumnya sesi berakhir)
+  // Riwayat konsultasi 
   final List<Map<String, dynamic>> riwayatKonsultasi = [
     {
       "name": "Bu. Sujiati S.Pd",
@@ -76,10 +76,10 @@ class PesanView extends StatelessWidget {
   // Fungsi untuk navigasi berdasarkan nama konselor
   void _navigateToChat(String konselorName) {
     if (konselorName.contains("Rahmat")) {
-      // Jika nama mengandung "Rahmat", pergi ke ChatView
+    
       Get.to(() => ChatView());
     } else {
-      // Selain Rahmat, pergi ke ChatRiwayatView
+      
       Get.to(() => ChatRiwayatView());
     }
   }
@@ -113,7 +113,7 @@ class PesanView extends StatelessWidget {
                     _buildSectionHeader("Riwayat Konsultasi",""),
                     const SizedBox(height: 8),
                     _buildMessageSection(riwayatKonsultasi, isHistory: true),
-                    const SizedBox(height: 100), // Space for FAB
+                    const SizedBox(height: 100), 
                   ],
                 ),
               ),
@@ -152,17 +152,17 @@ class PesanView extends StatelessWidget {
     // Handle menu selection
     switch (value) {
       case 'favorit':
-        // Aksi untuk favorit
+       
         Get.to(() => HistoriArtikelView());
-        // Tambahkan logika favorit di sini
+        
         break;
       case 'notifikasi':
     Get.to(() => NotifikasiView());
         break;
       case 'logout':
-        // Aksi untuk logout
+        
         print('Logout dipilih');
-        // Tambahkan logika logout di sini
+       
         break;
     }
   },
@@ -468,8 +468,6 @@ class PesanView extends StatelessWidget {
   }
 }
 
-// ================== KOMPONEN ==================
-
 class MessageTile extends StatelessWidget {
   final String name;
   final String subtitle;
@@ -478,7 +476,6 @@ class MessageTile extends StatelessWidget {
   final bool unread;
   final bool isActive;
 
-  // Color scheme
   static const Color primaryColor = Color(0xFF2A6352);
   static const Color secondaryColor = Color(0xFF64B6AC);
   static const Color tertiaryColor = Color(0xFFD9FFF8);
@@ -652,7 +649,6 @@ class HistoryTile extends StatelessWidget {
   final bool unread;
   final bool isActive;
 
-  // Color scheme
   static const Color primaryColor = Color(0xFF2A6352);
   static const Color secondaryColor = Color(0xFF64B6AC);
   static const Color tertiaryColor = Color(0xFFD9FFF8);

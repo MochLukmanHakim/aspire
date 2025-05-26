@@ -17,10 +17,10 @@ class HomeView extends StatelessWidget {
     return WillPopScope(
       onWillPop: () async {
         final handled = controller.handleBack();
-        return !handled; // return false jika kita handle sendiri (tidak keluar app)
+        return !handled; 
       },
       child: Scaffold(
-        backgroundColor: Colors.white, // Ubah ke putih
+        backgroundColor: Colors.white, 
         body: Obx(() => _buildBody(controller.currentIndex.value)),
         bottomNavigationBar: _buildBottomNavigationBar(),
       ),
@@ -47,9 +47,9 @@ class HomeView extends StatelessWidget {
   Widget _buildHomeContent() {
     return Stack(
       children: [
-        // Background hijau hanya untuk bagian atas
+        
         Container(
-          height: 220, // Sesuaikan tinggi sesuai kebutuhan
+          height: 220, 
           decoration: const BoxDecoration(
             color: Color(0xFF2A6352),
           ),
@@ -86,11 +86,10 @@ class HomeView extends StatelessWidget {
               padding: const EdgeInsets.fromLTRB(20, 50, 20, 16),
               child: Row(
                 children: [
-                  // Bungkus CircleAvatar dengan GestureDetector
+                  
                   GestureDetector(
                     onTap: () {
-                      // Navigasi ke ProfileView atau langsung ke tab profil
-                      Get.find<HomeController>().changePage(4); // Navigate to Profile tab
+                      Get.find<HomeController>().changePage(4); 
                     },
                     child: const CircleAvatar(
                       radius: 30,
@@ -133,13 +132,13 @@ class HomeView extends StatelessWidget {
                 child: ListView(
                   padding: const EdgeInsets.fromLTRB(20, 40, 20, 100),
                   children: [
-                    // Static Cards with spacing (MOVED TO TOP)
+                   
                     _buildStaticCards(),
                     const SizedBox(height: 24),
-                    // Top Konselor Section
+                    
                     _buildTopKonselorSection(),
                     const SizedBox(height: 24),
-                    // Appointment Card (MOVED TO BOTTOM)
+                   
                     _buildAppointmentCard(),
                   ],
                 ),
@@ -181,7 +180,7 @@ Widget _buildAppointmentCard() {
       borderRadius: BorderRadius.circular(16),
       border: Border(
         left: BorderSide(
-          color: const Color(0xFF2A6352), // Menggunakan warna hijau tema aplikasi
+          color: const Color(0xFF2A6352), 
           width: 4,
         ),
       ),
@@ -198,11 +197,11 @@ Widget _buildAppointmentCard() {
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Status Badge
+           
             Container(
               padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
               decoration: BoxDecoration(
-                color: const Color(0xFF2A6352), // Hijau tema aplikasi
+                color: const Color(0xFF2A6352),
                 borderRadius: BorderRadius.circular(20),
               ),
               child: Row(
@@ -230,7 +229,6 @@ Widget _buildAppointmentCard() {
             ),
             const SizedBox(height: 16),
             
-            // Appointment Time Info
             Row(
               children: [
                 Icon(
@@ -267,12 +265,12 @@ Widget _buildAppointmentCard() {
                   ),
                   child: ClipOval(
                     child: Image.asset(
-                      'assets/images/konselor1.png', // Path ke gambar di folder assets
+                      'assets/images/konselor1.png', 
                       width: 46,
                       height: 46,
                       fit: BoxFit.cover,
                       errorBuilder: (context, error, stackTrace) {
-                        // Fallback jika gambar tidak ditemukan
+                      
                         return Container(
                           width: 46,
                           height: 46,
@@ -316,22 +314,22 @@ Widget _buildAppointmentCard() {
                 ),
               ],
             ),
-            // Extra space untuk chat button
+           
           ],
         ),
-        // Chat Button - Positioned at bottom right
+       
         Positioned(
           bottom: 0,
           right: 0,
           child: GestureDetector(
             onTap: () {
-              // Handle chat
+             
               Get.to(() => (ChatView()));
             },
             child: Container(
               padding: const EdgeInsets.all(12),
               decoration: BoxDecoration(
-                color: const  Color(0xFF2A6352), // Background hijau
+                color: const  Color(0xFF2A6352), 
                 borderRadius: BorderRadius.circular(12),
                 boxShadow: [
                   BoxShadow(
@@ -343,7 +341,7 @@ Widget _buildAppointmentCard() {
               ),
               child: Icon(
                 Icons.chat_bubble_outline,
-                color: Colors.white, // Icon putih
+                color: Colors.white, 
                 size: 20,
               ),
             ),
@@ -372,7 +370,7 @@ Widget _buildAppointmentCard() {
               ),
               GestureDetector(
                 onTap: () {
-                  Get.find<HomeController>().changePage(3); // Navigate to KonselorView
+                  Get.find<HomeController>().changePage(3); 
                 },
                 child: Text(
                   'Lihat semua',
@@ -388,7 +386,7 @@ Widget _buildAppointmentCard() {
         ),
         const SizedBox(height: 16),
         SizedBox(
-          height: 140, // Tingkatkan dari 120 ke 140
+          height: 140, 
           child: ListView(
             scrollDirection: Axis.horizontal,
             padding: const EdgeInsets.symmetric(horizontal: 4),
@@ -423,17 +421,17 @@ Widget _buildAppointmentCard() {
   Widget _buildKonselorCard(String name, String specialty, String consultations, String imagePath) {
     return Container(
       width: 160,
-      padding: const EdgeInsets.all(12), // Kurangi padding dari 16 ke 12
+      padding: const EdgeInsets.all(12), 
       decoration: BoxDecoration(
         color: Color(0xFFF9FAFB),
         borderRadius: BorderRadius.circular(16),
       ),
       child: Column(
-        mainAxisSize: MainAxisSize.min, // Tambahkan ini
+        mainAxisSize: MainAxisSize.min, 
         children: [
           Container(
-            width: 60, // Kurangi dari 50 ke 45
-            height: 60, // Kurangi dari 50 ke 45
+            width: 60, 
+            height: 60, 
             decoration: BoxDecoration(
               shape: BoxShape.circle,
               color: Colors.grey.shade100,
@@ -456,18 +454,18 @@ Widget _buildAppointmentCard() {
                     child: Icon(
                       Icons.person,
                       color: Colors.white,
-                      size: 24, // Kurangi dari 28 ke 24
+                      size: 24, 
                     ),
                   );
                 },
               ),
             ),
           ),
-          const SizedBox(height: 6), // Kurangi dari 8 ke 6
+          const SizedBox(height: 6),
           Text(
             name,
             style: TextStyle(
-              fontSize: 14, // Kurangi dari 14 ke 13
+              fontSize: 14,
               fontWeight: FontWeight.w600,
               color: Colors.grey.shade800,
             ),
@@ -475,9 +473,9 @@ Widget _buildAppointmentCard() {
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
           ),
-          const SizedBox(height: 2), // Kurangi dari 4 ke 3
+          const SizedBox(height: 2),
           Container(
-            padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2), // Kurangi padding horizontal dari 8 ke 6
+            padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2), 
             decoration: BoxDecoration(
               color: const Color(0xFF2A6352).withOpacity(0.1),
               borderRadius: BorderRadius.circular(8),
@@ -485,7 +483,7 @@ Widget _buildAppointmentCard() {
             child: Text(
               consultations,
               style: TextStyle(
-                fontSize: 10, // Kurangi dari 11 ke 10
+                fontSize: 10, 
                 color: const Color(0xFF2A6352),
                 fontWeight: FontWeight.w500,
               ),
@@ -503,12 +501,12 @@ Widget _buildAppointmentCard() {
         scrollDirection: Axis.horizontal,
         children: [
           SizedBox(
-            width: MediaQuery.of(Get.context!).size.width - 40, // Full width minus padding
+            width: MediaQuery.of(Get.context!).size.width - 40, 
             child: _buildConsultationCard(),
           ),
-          const SizedBox(width: 16), // Jarak antar card
+          const SizedBox(width: 16), 
           SizedBox(
-            width: MediaQuery.of(Get.context!).size.width - 40, // Full width minus padding
+            width: MediaQuery.of(Get.context!).size.width - 40,
             child: _buildStressManagementCard(),
           ),
         ],
@@ -519,7 +517,7 @@ Widget _buildAppointmentCard() {
   Widget _buildConsultationCard() {
     return GestureDetector(
       onTap: () {
-        Get.find<HomeController>().changePage(3); // Navigate to KonselorView
+        Get.find<HomeController>().changePage(3); 
       },
       child: Container(
         height: 180,
@@ -529,8 +527,8 @@ Widget _buildAppointmentCard() {
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
             colors: [
-              const Color.fromARGB(255, 98, 158, 140), // Hijau utama
-              const Color(0xFF1E4A3F), // Hijau lebih gelap
+              const Color.fromARGB(255, 98, 158, 140), 
+              const Color(0xFF1E4A3F), 
             ],
           ),
           borderRadius: BorderRadius.circular(20),
@@ -637,8 +635,8 @@ Widget _buildAppointmentCard() {
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
             colors: [
-              const Color(0xFF4A90A4), // Biru kehijauan
-              const Color(0xFF2A6352), // Hijau utama
+              const Color(0xFF4A90A4), 
+              const Color(0xFF2A6352), 
             ],
           ),
           borderRadius: BorderRadius.circular(20),

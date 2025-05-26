@@ -12,7 +12,6 @@ class _HistoriSurveyViewState extends State<HistoriSurveyView> {
   final Color primaryColor = const Color(0xFF2A6352);
   final Color backgroundColor = const Color(0xFFFAFEFC);
 
-  // Data konselor yang di-bookmark
   List<Map<String, dynamic>> bookmarkedConsultants = [
     {
       'name': 'Bpk. Rahmat',

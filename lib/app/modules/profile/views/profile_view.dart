@@ -14,12 +14,9 @@ class ProfileView extends StatelessWidget {
     return Scaffold(
       backgroundColor: 
       const Color(0xFF2A6352), 
-      
-      // Warna hijau tua (atas)
       body: SafeArea(
         child: Stack(
           children: [
-            // Background putih yang sedikit turun
             Positioned(
               top: 152,
               left: 0,
@@ -51,107 +48,106 @@ class ProfileView extends StatelessWidget {
             // Konten utama
             Column(
               children: [
-               // Header dengan styling yang sama seperti artikel AppBar
-Padding(
-  padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 16.0),
-  child: Row(
-    children: [
-      const SizedBox(width: 8),
-      Text(
-        "Profil",
-        style: TextStyle(
-          fontSize: 22,
-          fontWeight: FontWeight.bold,
-          color: Color.fromARGB(255, 255, 255, 255),
-        ),
-      ),
-      const Spacer(),
-      PopupMenuButton<String>(
-  onSelected: (String value) {
-    // Handle menu selection
-    switch (value) {
-      case 'favorit':
-        // Aksi untuk favorit
-        Get.to(() => HistoriArtikelView());
-        // Tambahkan logika favorit di sini
-        break;
-      case 'notifikasi':
-    Get.to(() => NotifikasiView());
-        break;
-      case 'logout':
-        // Aksi untuk logout
-showLogoutDialog(context);
-        // Tambahkan logika logout di sini
-        break;
-    }
-  },
-  itemBuilder: (BuildContext context) => <PopupMenuEntry<String>>[
-    const PopupMenuItem<String>(
-      value: 'favorit',
-      child: Row(
-        children: [
-          Icon(
-            Icons.bookmark_border,
-            color: Color(0xFF2A6352),
-            size: 20,
-          ),
-          SizedBox(width: 12),
-          Text('Favorit'),
-        ],
-      ),
-    ),
-    const PopupMenuItem<String>(
-      value: 'notifikasi',
-      child: Row(
-        children: [
-          Icon(
-            Icons.notifications_outlined,
-            color: Color(0xFF2A6352),
-            size: 20,
-          ),
-          SizedBox(width: 12),
-          Text('Notifikasi'),
-        ],
-      ),
-    ),
-    const PopupMenuItem<String>(
-      value: 'logout',
-      child: Row(
-        children: [
-          Icon(
-            Icons.logout,
-            color: Color(0xFF2A6352),
-            size: 20,
-          ),
-          SizedBox(width: 12),
-          Text('Logout'),
-        ],
-      ),
-    ),
-  ],
-  child: Container(
-    padding: const EdgeInsets.all(8),
-    decoration: BoxDecoration(
-      color: Colors.white,
-      borderRadius: BorderRadius.circular(12),
-      boxShadow: [
-        BoxShadow(
-          color: Colors.black.withOpacity(0.05),
-          blurRadius: 8,
-          offset: const Offset(0, 2),
-        ),
-      ],
-    ),
-    child: Icon(
-      Icons.more_vert,
-      color: Color(0xFF2A6352),
-      size: 18,
-    ),
-  ),
-)
-    ],
-  ),
-),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 16.0),
+                child: Row(
+                  children: [
+                    const SizedBox(width: 8),
+                    Text(
+                      "Profil",
+                      style: TextStyle(
+                        fontSize: 22,
+                        fontWeight: FontWeight.bold,
+                        color: Color.fromARGB(255, 255, 255, 255),
+                      ),
+                    ),
+                    const Spacer(),
+                    PopupMenuButton<String>(
+                onSelected: (String value) {
+                  // Handle menu selection
+                  switch (value) {
+                    case 'favorit':
+                     
+                      Get.to(() => HistoriArtikelView());
+                      
+                      break;
+                    case 'notifikasi':
+                  Get.to(() => NotifikasiView());
+                      break;
+                    case 'logout':
+                     
+              showLogoutDialog(context);
+                     
+                      break;
+                  }
+                },
+                itemBuilder: (BuildContext context) => <PopupMenuEntry<String>>[
+                  const PopupMenuItem<String>(
+                    value: 'favorit',
+                    child: Row(
+                      children: [
+                        Icon(
+                          Icons.bookmark_border,
+                          color: Color(0xFF2A6352),
+                          size: 20,
+                        ),
+                        SizedBox(width: 12),
+                        Text('Favorit'),
+                      ],
+                    ),
+                  ),
+                  const PopupMenuItem<String>(
+                    value: 'notifikasi',
+                    child: Row(
+                      children: [
+                        Icon(
+                          Icons.notifications_outlined,
+                          color: Color(0xFF2A6352),
+                          size: 20,
+                        ),
+                        SizedBox(width: 12),
+                        Text('Notifikasi'),
+                      ],
+                    ),
+                  ),
+                  const PopupMenuItem<String>(
+                    value: 'logout',
+                    child: Row(
+                      children: [
+                        Icon(
+                          Icons.logout,
+                          color: Color(0xFF2A6352),
+                          size: 20,
+                        ),
+                        SizedBox(width: 12),
+                        Text('Logout'),
+                      ],
+                    ),
+                  ),
+                ],
+                child: Container(
+                  padding: const EdgeInsets.all(8),
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(12),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black.withOpacity(0.05),
+                        blurRadius: 8,
+                        offset: const Offset(0, 2),
+                      ),
+                    ],
+                  ),
+                  child: Icon(
+                    Icons.more_vert,
+                    color: Color(0xFF2A6352),
+                    size: 18,
+                  ),
+                ),
+              )
+                  ],
+                ),
+              ),
                 // Konten isi di atas background putih dengan padding top untuk ruang foto profil
                 Expanded(
                   child: SingleChildScrollView(
@@ -175,16 +171,14 @@ showLogoutDialog(context);
 
             // Foto profil yang fixed (tidak ikut scroll)
             Positioned(
-              top: 90, // Posisi dari atas
+              top: 90, 
               left: 0,
               right: 0,
               child: Column(
                 children: [
-                  // Foto profil
                   Stack(
                     alignment: Alignment.center,
                     children: [
-                      // Profile Image
                       const CircleAvatar(
                         radius: 63,
                         backgroundColor: Color(0xFFF9FAFB),
@@ -209,7 +203,6 @@ showLogoutDialog(context);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        // Header dengan tombol edit
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -223,9 +216,8 @@ showLogoutDialog(context);
             ),
             GestureDetector(
              onTap: () {
-  Get.to(() => ProfileDetailView());
-},
-
+                          Get.to(() => ProfileDetailView());
+                       },
               child: Container(
                 padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
                 decoration: BoxDecoration(
@@ -262,12 +254,10 @@ showLogoutDialog(context);
         
         const SizedBox(height: 16),
         
-        // Nama Lengkap (full width)
         buildCompactField("Nama Lengkap", "MOCH. LUKMAN HAKIM"),
         
         const SizedBox(height: 12),
         
-        // NIS dan Nama Pengguna (side by side)
         Row(
           children: [
             Expanded(
@@ -282,7 +272,6 @@ showLogoutDialog(context);
         
         const SizedBox(height: 12),
         
-        // No Telephone dan Email (full width)
         buildCompactField("No Telephone", "+62 123 4567 8912"),
         const SizedBox(height: 12),
         buildCompactField("Email", "Lukmanhakim2828@Gmail.Com"),
@@ -311,10 +300,10 @@ showLogoutDialog(context);
             borderRadius: BorderRadius.circular(8),
             boxShadow: [
       BoxShadow(
-        color: Colors.black.withOpacity(0.1), // warna bayangan
-        spreadRadius: 1, // sebaran bayangan
-        blurRadius: 3,   // seberapa blur
-        offset: const Offset(0, 2), // posisi bayangan (x, y)
+        color: Colors.black.withOpacity(0.1), 
+        spreadRadius: 1, 
+        blurRadius: 3,   
+        offset: const Offset(0, 2), 
       ),
     ],
           ),

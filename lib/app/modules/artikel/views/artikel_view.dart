@@ -91,7 +91,6 @@ class ArtikelView extends StatelessWidget {
                             "Berdasarkan Kategori",
                             style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
                           ),
-                          
                         ],
                       ),
                       const SizedBox(height: 12),
@@ -182,17 +181,15 @@ class ArtikelView extends StatelessWidget {
     // Handle menu selection
     switch (value) {
       case 'favorit':
-        // Aksi untuk favorit
+        
         Get.to(() => HistoriArtikelView());
-        // Tambahkan logika favorit di sini
+        
         break;
       case 'notifikasi':
     Get.to(() => NotifikasiView());
         break;
       case 'logout':
-        // Aksi untuk logout
         
-        // Tambahkan logika logout di sini
         break;
     }
   },
@@ -415,7 +412,7 @@ class ArtikelView extends StatelessWidget {
                       ),
                     ],
                   ),
-                  const SizedBox(height: 4), // Reduced from 6
+                  const SizedBox(height: 4), 
                   Text(
                     "Baca selengkapnya →",
                     style: TextStyle(

@@ -301,7 +301,7 @@ _buildUpcomingAppointmentCard(
                     rating: 4.8,
                     terjadwal: '5 orang',
                     availableTime: '09.00 - 15.30',
-                    profileImage: 'assets/images/konselor1.png', // Ganti dengan path asset Anda
+                    profileImage: 'assets/images/konselor1.png',
                     theme: theme,
                     context: context,
                   ),
@@ -311,7 +311,7 @@ _buildUpcomingAppointmentCard(
                     rating: 4.9,
                     terjadwal: '7 orang',
                     availableTime: '08.00 - 16.00',
-                    profileImage: 'assets/images/konselor2.png', // Ganti dengan path asset Anda
+                    profileImage: 'assets/images/konselor2.png', 
                     theme: theme,
                     context: context,
                   ),
@@ -321,7 +321,7 @@ _buildUpcomingAppointmentCard(
                     rating: 4.7,
                     terjadwal: '4 orang',
                     availableTime: '11.00 - 15.00',
-                    profileImage: 'assets/images/konselor3.png', // Ganti dengan path asset Anda
+                    profileImage: 'assets/images/konselor3.png', 
                     theme: theme,
                     context: context,
                   ),
@@ -330,7 +330,7 @@ _buildUpcomingAppointmentCard(
                     rating: 4.7,
                     terjadwal: '4 orang',
                     availableTime: '11.00 - 15.00',
-                    profileImage: 'assets/images/konselor4.png', // Ganti dengan path asset Anda
+                    profileImage: 'assets/images/konselor4.png', 
                     theme: theme,
                     context: context,
                   ),
@@ -339,7 +339,7 @@ _buildUpcomingAppointmentCard(
                     rating: 4.7,
                     terjadwal: '4 orang',
                     availableTime: '11.00 - 15.00',
-                    profileImage: 'assets/images/konselor5.png', // Ganti dengan path asset Anda
+                    profileImage: 'assets/images/konselor5.png',
                     theme: theme,
                     context: context,
                   ),
@@ -374,7 +374,7 @@ _buildUpcomingAppointmentCard(
   required String time,
   required String profileImage,
   required ThemeData theme,
-  String status = 'upcoming', // 'upcoming', 'ongoing', 'pending'
+  String status = 'upcoming', 
 }) {
   // Fungsi untuk mendapatkan warna garis status
 
@@ -469,7 +469,7 @@ _buildUpcomingAppointmentCard(
                       overflow: TextOverflow.ellipsis,
                     ),
                     const SizedBox(height: 4),
-                    // Status text (hanya tampil jika ada status)
+
                     if (getStatusText().isNotEmpty)
                       Text(
                         getStatusText(),
@@ -540,7 +540,6 @@ _buildUpcomingAppointmentCard(
     ),
   );
 }
-
 
   Widget _buildDoctorCard({
   required String name,

@@ -507,18 +507,16 @@ class BookmarkPainter extends CustomPainter {
     
     final path = Path();
     
-    // Membuat bentuk bookmark
-    path.moveTo(0, 0); // Pojok kiri atas
-    path.lineTo(size.width - 8, 0); // Ke kanan
-    path.lineTo(size.width, 8); // Diagonal ke bawah
-    path.lineTo(size.width, size.height - 8); // Ke bawah
-    path.lineTo(size.width - 4, size.height); // Pojok bookmark kiri
-    path.lineTo(size.width - 8, size.height - 4); // Pojok bookmark tengah
-    path.lineTo(size.width - 12, size.height); // Pojok bookmark kanan
-    path.lineTo(0, size.height); // Ke kiri
-    path.close(); // Kembali ke awal
-    
-    // Menambahkan shadow/drop shadow
+    path.moveTo(0, 0); 
+    path.lineTo(size.width - 8, 0); 
+    path.lineTo(size.width, 8); 
+    path.lineTo(size.width, size.height - 8); 
+    path.lineTo(size.width - 4, size.height); 
+    path.lineTo(size.width - 8, size.height - 4); 
+    path.lineTo(size.width - 12, size.height); 
+    path.lineTo(0, size.height); 
+    path.close(); 
+
     canvas.drawShadow(path, Colors.black.withOpacity(0.3), 2, false);
     canvas.drawPath(path, paint);
   }
